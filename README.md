@@ -28,12 +28,12 @@ This is an end-to-end project, a full Walmart Sales Data Analysis workflow using
 
 ## Business Problems Solved : 
 
-** Q1 Count total records **
+**Q1 Count total records**
 ```sql
 SELECT COUNT(*) FROM walmart;
 ```
 
-** Q2 Count payment methods and number of transactions by payment method **
+**Q2 Count payment methods and number of transactions by payment method**
 ```sql
 SELECT 
     payment_method,
@@ -43,7 +43,7 @@ GROUP BY payment_method;
 ```
 
 
-** Q3: Find different payment methods, number of transactions, and quantity sold by payment method **
+**Q3: Find different payment methods, number of transactions, and quantity sold by payment method**
 ```sql
 SELECT 
     payment_method,
@@ -54,7 +54,7 @@ GROUP BY payment_method;
 ```
 
 
-** Q4: Identify the highest-rated category in each branch , display the branch, category, and avg rating **
+**Q4: Identify the highest-rated category in each branch , display the branch, category, and avg rating**
 ```sql
 SELECT branch, category, avg_rating
 FROM (
@@ -70,7 +70,7 @@ WHERE rank = 1;
 ```
 
 
-** Q5: Identify the busiest day for each branch based on the number of transactions **
+**Q5: Identify the busiest day for each branch based on the number of transactions**
 ```sql
 select branch, day, no_of_transactions
 from(
@@ -85,7 +85,7 @@ where rankk=1;
 ```
 
 
-** Q6: Calculate the total quantity of items sold per payment method **
+**Q6: Calculate the total quantity of items sold per payment method**
 ```sql
 select payment_method, sum(quantity) as quantity_sold
 from walmart
@@ -93,7 +93,7 @@ group by payment_method;
 ```
 
 
-** Q7: Determine the average, minimum, and maximum rating of categories for each city **
+**Q7: Determine the average, minimum, and maximum rating of categories for each city**
 ```sql
 select city, 
 		category,
@@ -105,7 +105,7 @@ group by city, category;
 ```
 
 
-** Q8: Calculate the total profit for each category **
+**Q8: Calculate the total profit for each category**
 ```sql
 select category, 
 		round(sum(unit_price * quantity * profit_margin ),2) as total_profit
@@ -122,7 +122,7 @@ group by category;
 
 
 
-** Q9: Determine the most common payment method for each branch**
+**Q9: Determine the most common payment method for each branch**
 ```sql
 WITH cte AS (
     SELECT 
@@ -139,7 +139,7 @@ WHERE rank = 1;
 ```
 
 
-** Q10: Categorize sales into Morning, Afternoon, and Evening shifts for every branch with their count and order the result in decreasing order by the number_of_shifts per shift per branch **
+**Q10: Categorize sales into Morning, Afternoon, and Evening shifts for every branch with their count and order the result in decreasing order by the number_of_shifts per shift per branch**
 ```sql
 select branch,
 case 
